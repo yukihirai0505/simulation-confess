@@ -1,226 +1,230 @@
 <!DOCTYPE html>
 <html lang="ja">
-  <head>
-    <title>告白ジェネレーター</title>
-      <meta http-equiv="content-type"   content="text/html; charset=utf-8" />
-      <meta name="description"          content="告白したいけど、どう告白すればいいかわからない。そんなあなたにぴったりな言葉をチョイスします。" />
-      <meta name="keywords"             content="告白,青春" />
-      <meta property="og:url"           content="https://yukihirai0505.github.io/simulation-confess/" />
-      <meta property="og:type"          content="website" />
-      <meta property="og:title"         content="告白ジェネレーター" />
-      <meta property="og:description"   content="告白したいけど、どう告白すればいいかわからない。そんなあなたにぴったりな言葉をチョイスします。" />
-      <meta property="og:image"         content="https://yukihirai0505.github.io/simulation-confess/images/confess.png" />
-      <script src="js/jquery.min.js"></script>
-      <script src="js/skel.min.js"></script>
-      <script src="js/init.js"></script>
-      <noscript>
-        <link rel="stylesheet" href="css/skel.css" />
-        <link rel="stylesheet" href="css/style.css" />
-        <link rel="stylesheet" href="css/style-wide.css" />
-      </noscript>
-  </head>
+<head>
+  <title>告白ジェネレーター</title>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+  <meta name="description" content="告白したいけど、どう告白すればいいかわからない。そんなあなたにぴったりな言葉をチョイスします。"/>
+  <meta name="keywords" content="告白,青春"/>
+  <meta property="og:url" content="https://yukihirai0505.github.io/simulation-confess/"/>
+  <meta property="og:type" content="website"/>
+  <meta property="og:title" content="告白ジェネレーター"/>
+  <meta property="og:description" content="告白したいけど、どう告白すればいいかわからない。そんなあなたにぴったりな言葉をチョイスします。"/>
+  <meta property="og:image" content="https://yukihirai0505.github.io/simulation-confess/images/confess.png"/>
+  <script src="js/jquery.min.js"></script>
+  <script src="js/skel.min.js"></script>
+  <script src="js/init.js"></script>
+  <noscript>
+    <link rel="stylesheet" href="css/skel.css"/>
+    <link rel="stylesheet" href="css/style.css"/>
+    <link rel="stylesheet" href="css/style-wide.css"/>
+  </noscript>
+</head>
 <body>
 
-  <div id="header">
-    <span class="logo icon fa-heart"></span>
-    <h1>告白ジェネレーター</h1>
+<div id="header">
+  <span class="logo icon fa-heart"></span>
+  <h1>告白ジェネレーター</h1>
+  <p>
+    あなたには想いを寄せる人はいますか？好きな人はいますか？<br/>
+    もしいるならばその想いを伝えましょう。適切な言葉で。
+  </p>
+</div><!-- header -->
+
+<div id="main">
+
+  <header class="major container 75%">
+    <h2>
+      下記のチェックリストから<br>
+      好きな人に当てはまるものを<br>
+      チェックしていきましょう。
+    </h2>
+  </header>
+
+  <div class="box alt container">
+
+    <section class="feature left">
+      <a href="#" class="image icon fa-book"><img src="images/pic01.jpg" alt=""/></a>
+      <div class="content">
+        <h3>好きな人は？</h3>
+        <p>
+          <input type="radio" name="type" value="0" checked="checked">文系
+          <input type="radio" name="type" value="1">理系
+          <input type="radio" name="type" value="2">草食系
+        </p>
+      </div>
+    </section>
+
+    <section class="feature right">
+      <a href="#" class="image icon fa-venus-mars"><img src="images/pic02.jpg" alt=""/></a>
+      <div class="content">
+        <h3>どちらかというとその人は...</h3>
+        <p>
+          <input type="radio" name="favor" value="0" checked="checked">S
+          <input type="radio" name="favor" value="1">M
+          <input type="radio" name="favor" value="2">CRAZY
+        </p>
+      </div>
+    </section>
+
+    <section class="feature left">
+      <a href="#" class="image icon fa-pie-chart"><img src="images/pic03.jpg" alt=""/></a>
+      <div class="content">
+        <h3>あなたの気持ちは？</h3>
+        <p>
+          <input type="radio" name="feeling" value="0" checked="checked">結婚したい
+          <input type="radio" name="feeling" value="1">まずはお付き合いから
+          <input type="radio" name="feeling" value="2">遊び
+        </p>
+      </div>
+    </section>
+
+  </div><!-- box alt container -->
+
+  <footer class="major container 75%">
+    <h3>告白に必要なもの</h3>
     <p>
-      あなたには想いを寄せる人はいますか？好きな人はいますか？<br />
-      もしいるならばその想いを伝えましょう。適切な言葉で。
+      それは少しの勇気と適切な言葉。
     </p>
-  </div><!-- header -->
+    <p class="actions">
+      <input type="button" class="button" id="confess" value="告白する">
+    </p>
+    <h2>診断結果</h2>
+    <p id="result">こちらに結果が表示されます。</p>
+    <div id="tweet"></div>
+    <div id="line"></div>
+    <div id="fb-root"></div>
+    <script>
+      (function (d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s);
+        js.id = id;
+        js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.5&appId=1044598855571915";
+        fjs.parentNode.insertBefore(js, fjs);
+      }(document, 'script', 'facebook-jssdk'));
+    </script>
+    <div class="fb-share-button" data-href="https://yukihirai0505.github.io/simulation-confess/"
+         data-layout="button_count"></div>
 
-  <div id="main">
+  </footer>
 
-    <header class="major container 75%">
-      <h2>
-        下記のチェックリストから<br>
-        好きな人に当てはまるものを<br>
-        チェックしていきましょう。
-      </h2>
-    </header>
+</div><!-- main -->
 
-    <div class="box alt container">
-
-      <section class="feature left">
-        <a href="#" class="image icon fa-book"><img src="images/pic01.jpg" alt="" /></a>
-        <div class="content">
-          <h3>好きな人は？</h3>
-            <p>
-              <input type="radio" name="type" value="0" checked="checked">文系
-              <input type="radio" name="type" value="1">理系
-              <input type="radio" name="type" value="2">草食系
-            </p>
-        </div>
-      </section>
-
-      <section class="feature right">
-        <a href="#" class="image icon fa-venus-mars"><img src="images/pic02.jpg" alt="" /></a>
-        <div class="content">
-          <h3>どちらかというとその人は...</h3>
-          <p>
-            <input type="radio" name="favor" value="0" checked="checked">S
-            <input type="radio" name="favor" value="1">M
-            <input type="radio" name="favor" value="2">CRAZY
-          </p>
-        </div>
-      </section>
-
-      <section class="feature left">
-        <a href="#" class="image icon fa-pie-chart"><img src="images/pic03.jpg" alt="" /></a>
-        <div class="content">
-          <h3>あなたの気持ちは？</h3>
-          <p>
-            <input type="radio" name="feeling" value="0" checked="checked">結婚したい
-            <input type="radio" name="feeling" value="1">まずはお付き合いから
-            <input type="radio" name="feeling" value="2">遊び
-          </p>
-        </div>
-      </section>
-
-    </div><!-- box alt container -->
-
-    <footer class="major container 75%">
-      <h3>告白に必要なもの</h3>
-      <p>
-        それは少しの勇気と適切な言葉。
-      </p>
-      <p class="actions">
-        <input type="button" class="button" id="confess" value="告白する">
-      </p>
-      <h2>診断結果</h2>
-      <p id="result">こちらに結果が表示されます。</p>
-      <div id="tweet"></div>
-      <div id="line"></div>
-      <div id="fb-root"></div>
-      <script>
-        (function(d, s, id) {
-          var js, fjs = d.getElementsByTagName(s)[0];
-          if (d.getElementById(id)) return;
-          js = d.createElement(s); js.id = id;
-          js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.5&appId=1044598855571915";
-          fjs.parentNode.insertBefore(js, fjs);
-        }(document, 'script', 'facebook-jssdk'));
-      </script>
-      <div class="fb-share-button" data-href="https://yukihirai0505.github.io/simulation-confess/" data-layout="button_count"></div>
-
-    </footer>
-
-  </div><!-- main -->
-
-  <div id="footer">
-    <div class="container 75%">
-      <ul class="icons">
-        <li><a href="https://twitter.com/yuukying" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
-        <li><a href="https://www.facebook.com/yukyhirai" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
-        <li><a href="https://github.com/yukihirai0505" class="icon fa-github"><span class="label">Github</span></a></li>
-      </ul>
-      <ul class="copyright">
-        <li>&copy; 告白ジェネレーター</li><li>by Yuki Hirai</li>
-      </ul>
-    </div>
-  </div><!-- Footer -->
+<div id="footer">
+  <div class="container 75%">
+    <ul class="icons">
+      <li><a href="https://twitter.com/yuukying" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
+      <li><a href="https://www.facebook.com/yukyhirai" class="icon fa-facebook"><span class="label">Facebook</span></a>
+      </li>
+      <li><a href="https://github.com/yukihirai0505" class="icon fa-github"><span class="label">Github</span></a></li>
+    </ul>
+    <ul class="copyright">
+      <li>&copy; 告白ジェネレーター</li>
+      <li>by Yuki Hirai</li>
+    </ul>
+  </div>
+</div><!-- Footer -->
 
 <script>
-$(function() {
-  var results = [
-    [
+  $(function () {
+    var results = [
+      [
         [
-            'いざ、君との恋路へ！',
-            '巡り会えた時から、魔法が解けない',
-            'チョコレートのように甘い恋をしよう。'
+          'いざ、君との恋路へ！',
+          '巡り会えた時から、魔法が解けない',
+          'チョコレートのように甘い恋をしよう。'
         ],
         [
 
-            '恋の始まりに理由はないが、終わりには理由がある。',
-            '大人になればなるほど、君はどんどん綺麗になっていった。僕は望遠鏡を手にして星をつかまえに出掛けた',
-            '君を手に入れられるなら、単位を失っても良い。'
+          '恋の始まりに理由はないが、終わりには理由がある。',
+          '大人になればなるほど、君はどんどん綺麗になっていった。僕は望遠鏡を手にして星をつかまえに出掛けた',
+          '君を手に入れられるなら、単位を失っても良い。'
         ],
         [
-            '我輩は好きである。',
-            '愛しい君とムカつくあの野郎の関係にバルス！！！！！！！！！！！！',
-            '月が綺麗ですね。'
+          '我輩は好きである。',
+          '愛しい君とムカつくあの野郎の関係にバルス！！！！！！！！！！！！',
+          '月が綺麗ですね。'
         ]
-    ],
-    [
+      ],
+      [
         [
-            'あなたのシュヴァルツシルト半径に入ってしまいました……',
-            '毎朝君の作った和風だし飽和溶液を飲みたいんだ。',
-            '僕たちはもう暫近線じゃないんだ！'
+          'あなたのシュヴァルツシルト半径に入ってしまいました……',
+          '毎朝君の作った和風だし飽和溶液を飲みたいんだ。',
+          '僕たちはもう暫近線じゃないんだ！'
         ],
         [
-            '君と僕は生まれた時から万有引力という赤い糸によって引かれあっていたんだ',
-            '君と円周率のような終わらない恋がしたい。',
-            'ファン・デル・ワールス力が感じられるくらいそばにいたい'
+          '君と僕は生まれた時から万有引力という赤い糸によって引かれあっていたんだ',
+          '君と円周率のような終わらない恋がしたい。',
+          'ファン・デル・ワールス力が感じられるくらいそばにいたい'
         ],
         [
-            '君を幸せにするという僕の決意は共有結合よりかたい',
-            '僕は理性的な人間のつもりなんだけど\n境界条件次第で簡単にそれは覆ってしまうことに気付いたよ',
-            '私とあなたは必要十分条件。'
+          '君を幸せにするという僕の決意は共有結合よりかたい',
+          '僕は理性的な人間のつもりなんだけど\n境界条件次第で簡単にそれは覆ってしまうことに気付いたよ',
+          '私とあなたは必要十分条件。'
         ]
-    ],
-    [
+      ],
+      [
         [
-            'あなたを海より深く愛してる',
-            'もっと身近な存在になりたいな。返事はどれだけでも待つから',
-            '今までいろいろ話してきて好きになった、良ければ付き合って欲しい'
+          'あなたを海より深く愛してる',
+          'もっと身近な存在になりたいな。返事はどれだけでも待つから',
+          '今までいろいろ話してきて好きになった、良ければ付き合って欲しい'
         ],
         [
-            '君を見てると放っておけないんだよ',
-            'この先ずっとそばにいてくれますか？ Yes or Yes',
-            '会ってる時も会えない時も、あなたを幸せにしたい'
+          '君を見てると放っておけないんだよ',
+          'この先ずっとそばにいてくれますか？ Yes or Yes',
+          '会ってる時も会えない時も、あなたを幸せにしたい'
         ],
         [
-            '一目見た瞬間に君しか見えなかった。壁があったとしても君だけは壁を通して見えた。',
-            '僕の人生すべてがこの瞬間で埋め尽くされたなら、と夢見てしまった',
-            '僕は君の愛の囚われの身'
+          '一目見た瞬間に君しか見えなかった。壁があったとしても君だけは壁を通して見えた。',
+          '僕の人生すべてがこの瞬間で埋め尽くされたなら、と夢見てしまった',
+          '僕は君の愛の囚われの身'
         ]
-    ]
-  ];
-  var _ua = (function(u){
-    return {
-      Tablet:(u.indexOf("windows") != -1 && u.indexOf("touch") != -1 && u.indexOf("tablet pc") == -1)
+      ]
+    ];
+    var _ua = (function (u) {
+      return {
+        Tablet: (u.indexOf("windows") != -1 && u.indexOf("touch") != -1 && u.indexOf("tablet pc") == -1)
         || u.indexOf("ipad") != -1
         || (u.indexOf("android") != -1 && u.indexOf("mobile") == -1)
         || (u.indexOf("firefox") != -1 && u.indexOf("tablet") != -1)
         || u.indexOf("kindle") != -1
         || u.indexOf("silk") != -1
         || u.indexOf("playbook") != -1,
-      Mobile:(u.indexOf("windows") != -1 && u.indexOf("phone") != -1)
+        Mobile: (u.indexOf("windows") != -1 && u.indexOf("phone") != -1)
         || u.indexOf("iphone") != -1
         || u.indexOf("ipod") != -1
         || (u.indexOf("android") != -1 && u.indexOf("mobile") != -1)
         || (u.indexOf("firefox") != -1 && u.indexOf("mobile") != -1)
         || u.indexOf("blackberry") != -1
-    }
-  })(window.navigator.userAgent.toLowerCase());
+      }
+    })(window.navigator.userAgent.toLowerCase());
 
-  var $confess = $('#confess');
+    var $confess = $('#confess');
 
-  $confess.click(function() {
-    var $type = $("input[name='type']:checked").val();
-    var $favor = $("input[name='favor']:checked").val();
-    var $feeling = $("input[name='feeling']:checked").val();
-    var result = '「' + results[$type][$favor][$feeling] + '」';
-    var $result = $('#result');
-    var $tweet = $('#tweet');
-    var $line = $('#line');
-    var tweetLink = "<a href='https://twitter.com/intent/tweet?text=" + encodeURIComponent(result) + "&hashtags=告白ジェネレーター https://yukihirai0505.github.io/simulation-confess/' target='_blank'>ツイートする</a>";
-    var lineLink = "<a href='https://line.me/R/msg/text/?" + encodeURIComponent(result) + " https://yukihirai0505.github.io/simulation-confess/' target='_blank'>LINEでシェアする</a>";
-    $result.text('').fadeOut(800, function() {
-      $result.text(result).fadeIn(800);
+    $confess.click(function () {
+      var $type = $("input[name='type']:checked").val();
+      var $favor = $("input[name='favor']:checked").val();
+      var $feeling = $("input[name='feeling']:checked").val();
+      var result = '「' + results[$type][$favor][$feeling] + '」';
+      var $result = $('#result');
+      var $tweet = $('#tweet');
+      var $line = $('#line');
+      var tweetLink = "<a href='https://twitter.com/intent/tweet?text=" + encodeURIComponent(result) + "&hashtags=告白ジェネレーター https://yukihirai0505.github.io/simulation-confess/' target='_blank'>ツイートする</a>";
+      var lineLink = "<a href='https://line.me/R/msg/text/?" + encodeURIComponent(result) + " https://yukihirai0505.github.io/simulation-confess/' target='_blank'>LINEでシェアする</a>";
+      $result.text('').fadeOut(800, function () {
+        $result.text(result).fadeIn(800);
+      });
+      showLink($tweet, tweetLink);
+      if (_ua.Mobile) {
+        showLink($line, lineLink);
+      }
     });
-    showLink($tweet, tweetLink);
-    if(_ua.Mobile) {
-      showLink($line, lineLink);
+    function showLink($target, link) {
+      $target.fadeOut(1000, function () {
+        $target.html(link).fadeIn(1500);
+      });
     }
   });
-  function showLink($target, link) {
-    $target.fadeOut(1000, function() {
-      $target.html(link).fadeIn(1500);
-    });
-  }
-});
 </script>
 </body>
 </html>
