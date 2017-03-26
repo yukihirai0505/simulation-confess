@@ -45,9 +45,9 @@
         <div class="content">
           <h3>好きな人は？</h3>
             <p>
-              <input type="radio" name="type" value="1" checked="checked">文系
-              <input type="radio" name="type" value="2">理系
-              <input type="radio" name="type" value="3">草食系
+              <input type="radio" name="type" value="0" checked="checked">文系
+              <input type="radio" name="type" value="1">理系
+              <input type="radio" name="type" value="2">草食系
             </p>
         </div>
       </section>
@@ -56,9 +56,9 @@
         <div class="content">
           <h3>どちらかというとその人は...</h3>
           <p>
-            <input type="radio" name="favor" value="1" checked="checked">S
-            <input type="radio" name="favor" value="2">M
-            <input type="radio" name="favor" value="3">CRAZY
+            <input type="radio" name="favor" value="0" checked="checked">S
+            <input type="radio" name="favor" value="1">M
+            <input type="radio" name="favor" value="2">CRAZY
           </p>
         </div>
       </section>
@@ -67,9 +67,9 @@
         <div class="content">
           <h3>あなたの気持ちは？</h3>
           <p>
-            <input type="radio" name="feeling" value="1" checked="checked">結婚したい
-            <input type="radio" name="feeling" value="2">まずはお付き合いから
-            <input type="radio" name="feeling" value="3">遊び
+            <input type="radio" name="feeling" value="0" checked="checked">結婚したい
+            <input type="radio" name="feeling" value="1">まずはお付き合いから
+            <input type="radio" name="feeling" value="2">遊び
           </p>
         </div>
       </section>
@@ -117,6 +117,60 @@
   </div>
 <script>
 $(function() {
+  var results = [
+    [
+        [
+            'いざ、君との恋路へ！',
+            '巡り会えた時から、魔法が解けない',
+            'チョコレートのように甘い恋をしよう。'
+        ],
+        [
+
+            '恋の始まりに理由はないが、終わりには理由がある。',
+            '大人になればなるほど、君はどんどん綺麗になっていった。僕は望遠鏡を手にして星をつかまえに出掛けた',
+            '君を手に入れられるなら、単位を失っても良い。'
+        ],
+        [
+            '我輩は好きである。',
+            '愛しい君とムカつくあの野郎の関係にバルス！！！！！！！！！！！！',
+            '月が綺麗ですね。'
+        ]
+    ],
+    [
+        [
+            'あなたのシュヴァルツシルト半径に入ってしまいました……',
+            '毎朝君の作った和風だし飽和溶液を飲みたいんだ。',
+            '僕たちはもう暫近線じゃないんだ！'
+        ],
+        [
+            '君と僕は生まれた時から万有引力という赤い糸によって引かれあっていたんだ',
+            '君と円周率のような終わらない恋がしたい。',
+            'ファン・デル・ワールス力が感じられるくらいそばにいたい'
+        ],
+        [
+            '君を幸せにするという僕の決意は共有結合よりかたい',
+            '僕は理性的な人間のつもりなんだけど\n境界条件次第で簡単にそれは覆ってしまうことに気付いたよ',
+            '私とあなたは必要十分条件。'
+        ]
+    ],
+    [
+        [
+            'あなたを海より深く愛してる',
+            'もっと身近な存在になりたいな。返事はどれだけでも待つから',
+            '今までいろいろ話してきて好きになった、良ければ付き合って欲しい'
+        ],
+        [
+            '君を見てると放っておけないんだよ',
+            'この先ずっとそばにいてくれますか？ Yes or Yes',
+            '会ってる時も会えない時も、あなたを幸せにしたい'
+        ],
+        [
+            '一目見た瞬間に君しか見えなかった。壁があったとしても君だけは壁を通して見えた。',
+            '僕の人生すべてがこの瞬間で埋め尽くされたなら、と夢見てしまった',
+            '僕は君の愛の囚われの身'
+        ]
+    ]
+  ];
   var _ua = (function(u){
     return {
       Tablet:(u.indexOf("windows") != -1 && u.indexOf("touch") != -1 && u.indexOf("tablet pc") == -1)
@@ -135,96 +189,29 @@ $(function() {
     }
   })(window.navigator.userAgent.toLowerCase());
   var $confess = $('#confess');
-
   $confess.click(function() {
     var $type = $("input[name='type']:checked").val();
     var $favor = $("input[name='favor']:checked").val();
     var $feeling = $("input[name='feeling']:checked").val();
-    var result = getResult($type, $favor, $feeling);
+    var result = '「' + results[$type][$favor][$feeling] + '」';
     var $result = $('#result');
     var $tweet = $('#tweet');
     var $line = $('#line');
     var tweetLink = "<a href='https://twitter.com/intent/tweet?text=" + encodeURIComponent(result) + "&hashtags=告白ジェネレーター http://www.yukihirai0505.com/confess/index.html' target='_blank'>ツイートする</a>";
     var lineLink = "<a href='http://line.me/R/msg/text/?" + encodeURIComponent(result) + " http://www.yukihirai0505.com/confess/index.html' target='_blank'>LINEでシェアする</a>";
-
     $result.text('').fadeOut(800, function() {
       $result.text(result).fadeIn(800);
     });
-
     showLink($tweet, tweetLink);
-
     if(_ua.Mobile) {
       showLink($line, lineLink);
     }
-
   });
-
-  function getResult(type, favor, feeling) {
-    var result;
-    if (type == 1 && favor == 1 && feeling == 1 ) {
-      result = "「いざ、君との恋路へ！」";
-    } else if(type == 1 && favor == 1 && feeling == 2) {
-      result = "「巡り会えた時から、魔法が解けない」";
-    } else if(type == 1 && favor == 1 && feeling == 3) {
-      result = "「チョコレートのように甘い恋をしよう。」";
-    } else if(type == 1 && favor == 2 && feeling == 1) {
-      result = "「恋の始まりに理由はないが、終わりには理由がある。」";
-    } else if(type == 1 && favor == 2 && feeling == 2) {
-      result = "「大人になればなるほど、君はどんどん綺麗になっていった。僕は望遠鏡を手にして星をつかまえに出掛けた」";
-    } else if(type == 1 && favor == 2 && feeling == 3) {
-      result = "「君を手に入れられるなら、単位を失っても良い。」";
-    } else if(type == 1 && favor == 3 && feeling == 1) {
-      result = "「我輩は好きである。」";
-    } else if(type == 1 && favor == 3 && feeling == 2) {
-      result = "「愛しい君とムカつくあの野郎の関係にバルス！！！！！！！！！！！！」";
-    } else if(type == 1 && favor == 3 && feeling == 3) {
-      result = "「月が綺麗ですね。」";
-    } else if(type == 2 && favor == 1 && feeling == 1) {
-      result = "「あなたのシュヴァルツシルト半径に入ってしまいました…… 」";
-    } else if(type == 2 && favor == 1 && feeling == 2) {
-      result = "「毎朝君の作った和風だし飽和溶液を飲みたいんだ。」";
-    } else if(type == 2 && favor == 1 && feeling == 3) {
-      result = "「僕たちはもう暫近線じゃないんだ！」";
-    } else if(type == 2 && favor == 2 && feeling == 1) {
-      result = "「君と僕は生まれた時から万有引力という赤い糸によって引かれあっていたんだ」";
-    } else if(type == 2 && favor == 2 && feeling == 2) {
-      result = "「君と円周率のような終わらない恋がしたい。」";
-    } else if(type == 2 && favor == 2 && feeling == 3) {
-      result = "「ファン・デル・ワールス力が感じられるくらいそばにいたい」";
-    } else if(type == 2 && favor == 3 && feeling == 1) {
-      result = "「君を幸せにするという僕の決意は共有結合よりかたい」";
-    } else if(type == 2 && favor == 3 && feeling == 2) {
-      result = "「僕は理性的な人間のつもりなんだけど\n境界条件次第で簡単にそれは覆ってしまうことに気付いたよ」";
-    } else if(type == 2 && favor == 3 && feeling == 3) {
-      result = "「私とあなたは必要十分条件。」";
-    } else if(type == 3 && favor == 1 && feeling == 1) {
-      result = "「あなたを海より深く愛してる」";
-    } else if(type == 3 && favor == 1 && feeling == 2) {
-      result = "「もっと身近な存在になりたいな。返事はどれだけでも待つから」";
-    } else if(type == 3 && favor == 1 && feeling == 3) {
-      result = "「今までいろいろ話してきて好きになった、良ければ付き合って欲しい」";
-    } else if(type == 3 && favor == 2 && feeling == 1) {
-      result = "「君を見てると放っておけないんだよ」";
-    } else if(type == 3 && favor == 2 && feeling == 2) {
-      result = "「この先ずっとそばにいてくれますか？ Yes or Yes」";
-    } else if(type == 3 && favor == 2 && feeling == 3) {
-      result = "「会ってる時も会えない時も、あなたを幸せにしたい」";
-    } else if(type == 3 && favor == 3 && feeling == 1) {
-      result = "「一目見た瞬間に君しか見えなかった。壁があったとしても君だけは壁を通して見えた。」";
-    } else if(type == 3 && favor == 3 && feeling == 2) {
-      result = "「僕の人生すべてがこの瞬間で埋め尽くされたなら、と夢見てしまった」";
-    } else {
-      result = "「僕は君の愛の囚われの身」";
-    }
-    return result;
-  }
-
   function showLink($target, link) {
     $target.fadeOut(1000, function() {
       $target.html(link).fadeIn(1500);
     });
   }
-
 });
 </script>
 </body>
