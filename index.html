@@ -1,10 +1,10 @@
-<!DOCTYPE HTML>
-<html>
+<!DOCTYPE html>
+<html lang="ja">
   <head>
     <title>告白ジェネレーター</title>
-      <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-      <meta name="description" content="告白したいけど、どう告白すればいいかわからない。そんなあなたにぴったりな言葉をチョイスします。" />
-      <meta name="keywords" content="告白,青春" />
+      <meta http-equiv="content-type"   content="text/html; charset=utf-8" />
+      <meta name="description"          content="告白したいけど、どう告白すればいいかわからない。そんなあなたにぴったりな言葉をチョイスします。" />
+      <meta name="keywords"             content="告白,青春" />
       <meta property="og:url"           content="https://yukihirai0505.github.io/simulation-confess/" />
       <meta property="og:type"          content="website" />
       <meta property="og:title"         content="告白ジェネレーター" />
@@ -20,7 +20,7 @@
       </noscript>
   </head>
 <body>
-  <!-- Header -->
+
   <div id="header">
     <span class="logo icon fa-heart"></span>
     <h1>告白ジェネレーター</h1>
@@ -28,9 +28,10 @@
       あなたには想いを寄せる人はいますか？好きな人はいますか？<br />
       もしいるならばその想いを伝えましょう。適切な言葉で。
     </p>
-  </div>
-  <!-- Main -->
+  </div><!-- header -->
+
   <div id="main">
+
     <header class="major container 75%">
       <h2>
         下記のチェックリストから<br>
@@ -38,8 +39,9 @@
         チェックしていきましょう。
       </h2>
     </header>
+
     <div class="box alt container">
-      <form action="" method="">
+
       <section class="feature left">
         <a href="#" class="image icon fa-book"><img src="images/pic01.jpg" alt="" /></a>
         <div class="content">
@@ -51,6 +53,7 @@
             </p>
         </div>
       </section>
+
       <section class="feature right">
         <a href="#" class="image icon fa-venus-mars"><img src="images/pic02.jpg" alt="" /></a>
         <div class="content">
@@ -62,6 +65,7 @@
           </p>
         </div>
       </section>
+
       <section class="feature left">
         <a href="#" class="image icon fa-pie-chart"><img src="images/pic03.jpg" alt="" /></a>
         <div class="content">
@@ -73,7 +77,9 @@
           </p>
         </div>
       </section>
-    </div>
+
+    </div><!-- box alt container -->
+
     <footer class="major container 75%">
       <h3>告白に必要なもの</h3>
       <p>
@@ -99,10 +105,9 @@
       <div class="fb-share-button" data-href="https://yukihirai0505.github.io/simulation-confess/" data-layout="button_count"></div>
 
     </footer>
-    </form>
-  </div>
-  
-  <!-- Footer -->
+
+  </div><!-- main -->
+
   <div id="footer">
     <div class="container 75%">
       <ul class="icons">
@@ -114,7 +119,8 @@
         <li>&copy; 告白ジェネレーター</li><li>by Yuki Hirai</li>
       </ul>
     </div>
-  </div>
+  </div><!-- Footer -->
+
 <script>
 $(function() {
   var results = [
@@ -188,7 +194,9 @@ $(function() {
         || u.indexOf("blackberry") != -1
     }
   })(window.navigator.userAgent.toLowerCase());
+
   var $confess = $('#confess');
+
   $confess.click(function() {
     var $type = $("input[name='type']:checked").val();
     var $favor = $("input[name='favor']:checked").val();
