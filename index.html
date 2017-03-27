@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ja">
+  <html lang="ja">
 <head>
   <title>告白ジェネレーター</title>
   <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
@@ -92,20 +92,6 @@
     <p id="result">こちらに結果が表示されます。</p>
     <div id="tweet"></div>
     <div id="line"></div>
-    <div id="fb-root"></div>
-    <script>
-      (function (d, s, id) {
-        var js, fjs = d.getElementsByTagName(s)[0];
-        if (d.getElementById(id)) return;
-        js = d.createElement(s);
-        js.id = id;
-        js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.5&appId=1044598855571915";
-        fjs.parentNode.insertBefore(js, fjs);
-      }(document, 'script', 'facebook-jssdk'));
-    </script>
-    <div class="fb-share-button" data-href="https://yukihirai0505.github.io/simulation-confess/"
-         data-layout="button_count"></div>
-
   </footer>
 
 </div><!-- main -->
@@ -124,107 +110,6 @@
     </ul>
   </div>
 </div><!-- Footer -->
-
-<script>
-  $(function () {
-    var results = [
-      [
-        [
-          'いざ、君との恋路へ！',
-          '巡り会えた時から、魔法が解けない',
-          'チョコレートのように甘い恋をしよう。'
-        ],
-        [
-
-          '恋の始まりに理由はないが、終わりには理由がある。',
-          '大人になればなるほど、君はどんどん綺麗になっていった。僕は望遠鏡を手にして星をつかまえに出掛けた',
-          '君を手に入れられるなら、単位を失っても良い。'
-        ],
-        [
-          '我輩は好きである。',
-          '愛しい君とムカつくあの野郎の関係にバルス！！！！！！！！！！！！',
-          '月が綺麗ですね。'
-        ]
-      ],
-      [
-        [
-          'あなたのシュヴァルツシルト半径に入ってしまいました……',
-          '毎朝君の作った和風だし飽和溶液を飲みたいんだ。',
-          '僕たちはもう暫近線じゃないんだ！'
-        ],
-        [
-          '君と僕は生まれた時から万有引力という赤い糸によって引かれあっていたんだ',
-          '君と円周率のような終わらない恋がしたい。',
-          'ファン・デル・ワールス力が感じられるくらいそばにいたい'
-        ],
-        [
-          '君を幸せにするという僕の決意は共有結合よりかたい',
-          '僕は理性的な人間のつもりなんだけど\n境界条件次第で簡単にそれは覆ってしまうことに気付いたよ',
-          '私とあなたは必要十分条件。'
-        ]
-      ],
-      [
-        [
-          'あなたを海より深く愛してる',
-          'もっと身近な存在になりたいな。返事はどれだけでも待つから',
-          '今までいろいろ話してきて好きになった、良ければ付き合って欲しい'
-        ],
-        [
-          '君を見てると放っておけないんだよ',
-          'この先ずっとそばにいてくれますか？ Yes or Yes',
-          '会ってる時も会えない時も、あなたを幸せにしたい'
-        ],
-        [
-          '一目見た瞬間に君しか見えなかった。壁があったとしても君だけは壁を通して見えた。',
-          '僕の人生すべてがこの瞬間で埋め尽くされたなら、と夢見てしまった',
-          '僕は君の愛の囚われの身'
-        ]
-      ]
-    ];
-    var _ua = (function (u) {
-      return {
-        Tablet: (u.indexOf("windows") != -1 && u.indexOf("touch") != -1 && u.indexOf("tablet pc") == -1)
-        || u.indexOf("ipad") != -1
-        || (u.indexOf("android") != -1 && u.indexOf("mobile") == -1)
-        || (u.indexOf("firefox") != -1 && u.indexOf("tablet") != -1)
-        || u.indexOf("kindle") != -1
-        || u.indexOf("silk") != -1
-        || u.indexOf("playbook") != -1,
-        Mobile: (u.indexOf("windows") != -1 && u.indexOf("phone") != -1)
-        || u.indexOf("iphone") != -1
-        || u.indexOf("ipod") != -1
-        || (u.indexOf("android") != -1 && u.indexOf("mobile") != -1)
-        || (u.indexOf("firefox") != -1 && u.indexOf("mobile") != -1)
-        || u.indexOf("blackberry") != -1
-      }
-    })(window.navigator.userAgent.toLowerCase());
-
-    var $confess = $('#confess');
-
-    $confess.click(function () {
-      var $type = $("input[name='type']:checked").val();
-      var $favor = $("input[name='favor']:checked").val();
-      var $feeling = $("input[name='feeling']:checked").val();
-      var result = '「' + results[$type][$favor][$feeling] + '」';
-      var $result = $('#result');
-      var $tweet = $('#tweet');
-      var $line = $('#line');
-      var tweetLink = "<a href='https://twitter.com/intent/tweet?text=" + encodeURIComponent(result) + "&hashtags=告白ジェネレーター https://yukihirai0505.github.io/simulation-confess/' target='_blank'>ツイートする</a>";
-      var lineLink = "<a href='https://line.me/R/msg/text/?" + encodeURIComponent(result) + " https://yukihirai0505.github.io/simulation-confess/' target='_blank'>LINEでシェアする</a>";
-      $result.text('').fadeOut(800, function () {
-        $result.text(result).fadeIn(800);
-      });
-      showLink($tweet, tweetLink);
-      if (_ua.Mobile) {
-        showLink($line, lineLink);
-      }
-    });
-    function showLink($target, link) {
-      $target.fadeOut(1000, function () {
-        $target.html(link).fadeIn(1500);
-      });
-    }
-  });
-</script>
+<script src="js/main.js"></script>
 </body>
 </html>
