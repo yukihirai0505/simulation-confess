@@ -3,8 +3,43 @@ import './App.css';
 import Header from './Header';
 import Footer from './Footer';
 
+let choices = [
+  {name: 'type', image: 'images/pic01.jpg', position: 'left', icon: 'fa-book', question: '好きな人は？', answer: ['文系', '理系', '草食系']},
+  {name: 'favor', image: 'images/pic02.jpg', position: 'right', icon: 'fa-venus-mars', question: 'どちらかというとその人は...', answer: ['S', 'M', 'CRAZY']},
+  {name: 'feeling', image: 'images/pic03.jpg', position: 'left', icon: 'fa-pie-chart', question: 'あなたの気持ちは？', answer: ['結婚したい', 'まずはお付き合いから', '遊び']}
+];
+const SectionInput = React.createClass({
+    render: function () {
+      let data = this.props.data;
+      let radioNodes = data.answer.map(function (answer, index) {
+        return (
+          <p>
+            <input type="radio" name={data.name} value={index}/>{answer}
+          </p>
+        )
+      });
+      return (
+        <section className={"feature " + data.position}>
+          <a href="#" className={"image icon " + data.icon}><img src={data.image} alt=""/></a>
+          <div className="content">
+            <h3>{data.question}</h3>
+            <p>
+              {radioNodes}
+            </p>
+          </div>
+        </section>
+      );
+    }
+  })
+;
+
 class App extends Component {
   render() {
+    let sectionNodes = choices.map(function (choice, index) {
+      return (
+        <SectionInput data={choice} value={index + 1}/>
+      )
+    });
     return (
       <div>
         <Header />
@@ -19,43 +54,7 @@ class App extends Component {
           </header>
 
           <div className="box alt container">
-
-            <section className="feature left">
-              <a href="#" className="image icon fa-book"><img src="images/pic01.jpg" alt=""/></a>
-              <div className="content">
-                <h3>好きな人は？</h3>
-                <p>
-                  <input type="radio" name="type" value="0" checked="checked"/>文系
-                  <input type="radio" name="type" value="1"/>理系
-                  <input type="radio" name="type" value="2"/>草食系
-                </p>
-              </div>
-            </section>
-
-            <section className="feature right">
-              <a href="#" className="image icon fa-venus-mars"><img src="images/pic02.jpg" alt=""/></a>
-              <div className="content">
-                <h3>どちらかというとその人は...</h3>
-                <p>
-                  <input type="radio" name="favor" value="0" checked="checked"/>S
-                  <input type="radio" name="favor" value="1"/>M
-                  <input type="radio" name="favor" value="2"/>CRAZY
-                </p>
-              </div>
-            </section>
-
-            <section className="feature left">
-              <a href="#" className="image icon fa-pie-chart"><img src="images/pic03.jpg" alt=""/></a>
-              <div className="content">
-                <h3>あなたの気持ちは？</h3>
-                <p>
-                  <input type="radio" name="feeling" value="0" checked="checked"/>結婚したい
-                  <input type="radio" name="feeling" value="1"/>まずはお付き合いから
-                  <input type="radio" name="feeling" value="2"/>遊び
-                </p>
-              </div>
-            </section>
-
+            {sectionNodes}
           </div>
 
           <footer className="major container 75%">
