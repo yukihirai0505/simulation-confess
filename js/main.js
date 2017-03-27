@@ -2,7 +2,6 @@
  * Created by Yuki Hirai on 2017/03/27.
  */
 $(function () {
-  'use strict';
   var results = [
     [
       [

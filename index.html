@@ -13,9 +13,6 @@
   <script src="js/jquery.min.js"></script>
   <script src="js/skel.min.js"></script>
   <script src="js/init.js"></script>
-  <script src="js/i18next/i18next.min.js"></script>
-  <script src="js/i18next-xhr-backend/i18nextXHRBackend.min.js"></script>
-  <script src="js/jquery-i18next/jquery-i18next.min.js"></script>
   <noscript>
     <link rel="stylesheet" href="css/skel.css"/>
     <link rel="stylesheet" href="css/style.css"/>
@@ -98,10 +95,7 @@
   </footer>
 
 </div><!-- main -->
-<div>
-  <span data-i18n="hello"></span>
-  <span data-i18n="world"></span>
-</div>
+
 <div id="footer">
   <div class="container 75%">
     <ul class="icons">
@@ -116,17 +110,6 @@
     </ul>
   </div>
 </div><!-- Footer -->
-<script>
-  (function() {
-    'use strict';
-    i18next.use(i18nextXHRBackend).init({
-      // lng: 'ja'
-    }, function(err, t) {
-      jqueryI18next.init(i18next, $);
-      $("[data-i18n]").localize();
-    });
-  }());
-</script>
 <script src="js/main.js"></script>
 </body>
 </html>
