@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import Header from './Header';
 import Choice from './Choice';
+import Result from './Result';
 import Footer from './Footer';
 import {choices} from '../constants/index'
 
@@ -28,19 +29,7 @@ class App extends Component {
             {sectionNodes}
           </div>
 
-          <footer className="major container 75%">
-            <h3>告白に必要なもの</h3>
-            <p>
-              それは少しの勇気と適切な言葉。
-            </p>
-            <p className="actions">
-              <input type="button" className="button" id="confess" value="告白する"/>
-            </p>
-            <h2>診断結果</h2>
-            <p id="result">こちらに結果が表示されます。</p>
-            <div id="tweet"/>
-            <div id="line"/>
-          </footer>
+          <Result />
 
         </div>
         <Footer />

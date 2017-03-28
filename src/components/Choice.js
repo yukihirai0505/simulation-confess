@@ -6,7 +6,7 @@ class Choice extends Component {
     let radioNodes = data.answer.map(function (answer, index) {
       return (
         <p>
-          <input type="radio" name={data.name} value={index}/>{answer}
+          <input type="radio" id={`input-${data.name}`} name={data.name} value={index}/>{answer}
         </p>
       )
     });
