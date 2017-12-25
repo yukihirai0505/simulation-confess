@@ -24,7 +24,7 @@ class Result extends Component {
             let $result = $('#result');
             let $tweet = $('#tweet');
             let $line = $('#line');
-            let tweetLink = "<a href='https://twitter.com/intent/tweet?text=" + encodeURIComponent(result) + "&hashtags=告白ジェネレーター https://yukihirai0505.github.io/simulation-confess/' target='_blank'>ツイートする</a>";
+            let tweetLink = "<a href='https://twitter.com/intent/tweet?text=" + encodeURIComponent(result) + "&hashtags=告白ジェネレーター https://yukihirai0505.github.io/simulation-confess/ @yabaiwebyasan' target='_blank'>ツイートする</a>";
             let lineLink = "<a href='https://line.me/R/msg/text/?" + encodeURIComponent(result) + " https://yukihirai0505.github.io/simulation-confess/' target='_blank'>LINEでシェアする</a>";
             $result.text('').fadeOut(800, function () {
               $result.text(result).fadeIn(800);
